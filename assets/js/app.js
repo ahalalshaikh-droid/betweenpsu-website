@@ -46,9 +46,9 @@ const copy = Object.freeze({
     join: {
       eyebrow: 'Stay Connected',
       title: 'Follow what happens next.',
-      body: 'Registration is currently closed. Follow Between for new events, opportunities, and the next application window.',
+      body: 'Registration is now open. Complete the form to apply and join Between.',
       registrationLabel: 'Registration',
-      registrationClosed: 'Currently closed',
+      registrationAction: 'Apply now ↗',
       services: ['Instagram', 'TikTok', 'Email'],
       contacts: ['@betweenpsu', '@betweenpsu', 'betweenclub@psu.edu.sa'],
     },
@@ -96,9 +96,9 @@ const copy = Object.freeze({
     join: {
       eyebrow: 'ابقَ على تواصل',
       title: 'تابع كل ما هو قادم.',
-      body: 'التسجيل مغلق حالياً. تابع بين لمعرفة الفعاليات والفرص القادمة وموعد فتح التسجيل القادم.',
+      body: 'التسجيل مفتوح الآن. أكمل النموذج للتقديم والانضمام إلى بين.',
       registrationLabel: 'التسجيل',
-      registrationClosed: 'مغلق حالياً',
+      registrationAction: 'قدّم الآن ↗',
       services: ['إنستغرام', 'تيك توك', 'البريد'],
       contacts: ['@betweenpsu', '@betweenpsu', 'betweenclub@psu.edu.sa'],
     },
