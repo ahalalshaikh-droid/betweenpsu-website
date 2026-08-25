@@ -23,6 +23,50 @@ const expectedImages = [
   'gallery-founders-1200.webp',
 ];
 
+const findClosingBrace = (css, openingBrace) => {
+  let depth = 0;
+  for (let index = openingBrace; index < css.length; index += 1) {
+    if (css[index] === '{') depth += 1;
+    if (css[index] === '}') depth -= 1;
+    if (depth === 0) return index;
+  }
+  throw new Error('Unbalanced CSS block');
+};
+
+const renderedClassProperty = (css, classSelector, property, viewportWidth, initialValue) => {
+  let renderedValue = initialValue;
+
+  const visit = (source) => {
+    let cursor = 0;
+    while (cursor < source.length) {
+      const openingBrace = source.indexOf('{', cursor);
+      if (openingBrace === -1) break;
+
+      const header = source.slice(cursor, openingBrace).trim();
+      const closingBrace = findClosingBrace(source, openingBrace);
+      const block = source.slice(openingBrace + 1, closingBrace);
+
+      if (header.startsWith('@media')) {
+        const minimumWidth = Number(header.match(/min-width:\s*(\d+)px/)?.[1] ?? 0);
+        if (viewportWidth >= minimumWidth) visit(block);
+      } else if (header.split(',').map((selector) => selector.trim()).includes(classSelector)) {
+        for (const declaration of block.split(';')) {
+          const separator = declaration.indexOf(':');
+          if (separator === -1) continue;
+          const name = declaration.slice(0, separator).trim();
+          const value = declaration.slice(separator + 1).trim();
+          if (name === property) renderedValue = value;
+        }
+      }
+
+      cursor = closingBrace + 1;
+    }
+  };
+
+  visit(css.replace(/\/\*[\s\S]*?\*\//g, ''));
+  return renderedValue;
+};
+
 test('optimized image assets exist and stay within web delivery budgets', () => {
   for (const name of expectedImages) {
     assert.equal(existsSync(asset(name)), true, `${name} is missing`);
@@ -75,6 +119,16 @@ test('stylesheet contains responsive, focus, RTL, and motion safeguards', () => 
 test('root styles do not force horizontal overflow at a 320px viewport', () => {
   const css = readFileSync(new URL('../assets/css/styles.css', import.meta.url), 'utf8');
   assert.doesNotMatch(css, /(?:html|body)\s*\{[^}]*min-width:\s*320px/gs);
+});
+
+test('desktop footer paints the full viewport instead of a centered strip', () => {
+  const css = readFileSync(new URL('../assets/css/styles.css', import.meta.url), 'utf8');
+  assert.equal(renderedClassProperty(css, '.footer', 'width', 2048, 'auto'), '100%');
+});
+
+test('desktop gallery cards keep their natural height instead of exposing stretched backgrounds', () => {
+  const css = readFileSync(new URL('../assets/css/styles.css', import.meta.url), 'utf8');
+  assert.equal(renderedClassProperty(css, '.gallery-grid', 'align-items', 2048, 'stretch'), 'start');
 });
 
 test('language helpers normalize and switch safely', async () => {
