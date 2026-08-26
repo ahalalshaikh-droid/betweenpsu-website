@@ -40,6 +40,8 @@ const copy = Object.freeze({
     gallery: {
       eyebrow: 'Gallery',
       title: 'In Between.',
+      story: 'A year in motion—built from the people, conversations, and moments that brought Between to life.',
+      collageAlt: 'Collage of Between events, speakers, founders, students, and community moments',
       label: 'Between club gallery',
       captions: ['The team', 'Entrepreneurial Talks', '252 Be a Founder Winners', 'Be a Founder', 'Between Founders'],
     },
@@ -90,6 +92,8 @@ const copy = Object.freeze({
     gallery: {
       eyebrow: 'الصور',
       title: 'داخل بين.',
+      story: 'عامٌ من الحركة، صنعه الأشخاص والحوارات واللحظات التي منحت بين حضوره.',
+      collageAlt: 'مجموعة صور لفعاليات بين والمتحدثين والمؤسسين والطلاب ولحظات المجتمع',
       label: 'معرض صور نادي بين',
       captions: ['فريق بين', 'حوارات ريادية', 'الفائزون في كن مؤسس 252', 'كن مؤسس', 'بين المؤسسين'],
     },
