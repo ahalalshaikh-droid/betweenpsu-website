@@ -885,7 +885,7 @@ html[dir="rtl"] .join h2 {
   }
 
   html[dir="rtl"] .site-header {
-    transform: translateX(-50%);
+    transform: translateX(50%);
   }
 
   .brand img {

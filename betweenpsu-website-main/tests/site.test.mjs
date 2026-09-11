@@ -130,6 +130,14 @@ test('desktop footer paints the full viewport instead of a centered strip', () =
   assert.equal(renderedClassProperty(css, '.footer', 'width', 2048, 'auto'), '100%');
 });
 
+test('desktop RTL header mirrors the centering transform', () => {
+  const css = readFileSync(new URL('../assets/css/styles.css', import.meta.url), 'utf8');
+  assert.equal(
+    renderedClassProperty(css, 'html[dir="rtl"] .site-header', 'transform', 1440, 'none'),
+    'translateX(50%)',
+  );
+});
+
 test('desktop gallery cards keep their natural height instead of exposing stretched backgrounds', () => {
   const css = readFileSync(new URL('../assets/css/styles.css', import.meta.url), 'utf8');
   assert.equal(renderedClassProperty(css, '.gallery-grid', 'align-items', 2048, 'stretch'), 'start');
@@ -142,6 +150,12 @@ test('language helpers normalize and switch safely', async () => {
   assert.equal(app.oppositeLanguage('en'), 'ar');
   assert.equal(app.oppositeLanguage('ar'), 'en');
   assert.equal(app.getCopy('invalid').nav.home, 'Home');
+});
+
+test('footer brand has matching English and Arabic copy', async () => {
+  const app = await import('../assets/js/app.js');
+  assert.equal(app.getCopy('en').footer.brand, 'Between · Prince Sultan University');
+  assert.equal(app.getCopy('ar').footer.brand, 'بين · جامعة الأمير سلطان');
 });
 
 test('client code avoids executable string and HTML injection APIs', () => {
