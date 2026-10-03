@@ -37,6 +37,16 @@ const copy = Object.freeze({
       upcoming: 'Upcoming',
       ongoing: 'Ongoing',
     },
+    ecosystem: {
+      eyebrow: 'Connections',
+      title: 'Our ecosystem.',
+      partnersCaption: 'Success partners',
+      networkCaption: 'The success network',
+      partnersAlt: "Logos of Between's success partners",
+      networkAlt: "Portraits of people in Between's success network",
+      partnersLink: 'View success partners image at full size',
+      networkLink: 'View success network image at full size',
+    },
     gallery: {
       eyebrow: 'Gallery',
       title: 'In Between.',
@@ -91,6 +101,16 @@ const copy = Object.freeze({
       title: 'ما القادم هذا الفصل؟',
       upcoming: 'قريبًا',
       ongoing: 'مستمر',
+    },
+    ecosystem: {
+      eyebrow: 'روابطنا',
+      title: 'منظومتنا.',
+      partnersCaption: 'شركاء النجاح',
+      networkCaption: 'شبكة النجاح',
+      partnersAlt: 'شعارات شركاء النجاح في بين',
+      networkAlt: 'صور أشخاص من شبكة النجاح في بين',
+      partnersLink: 'عرض صورة شركاء النجاح بالحجم الكامل',
+      networkLink: 'عرض صورة شبكة النجاح بالحجم الكامل',
     },
     gallery: {
       eyebrow: 'لحظاتنا',

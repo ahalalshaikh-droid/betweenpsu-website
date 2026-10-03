@@ -530,6 +530,44 @@ main,
   font-weight: 750;
 }
 
+.ecosystem-grid {
+  margin-top: 48px;
+  display: grid;
+  gap: 44px 20px;
+}
+
+.ecosystem-item {
+  min-width: 0;
+  margin: 0;
+}
+
+.ecosystem-art {
+  aspect-ratio: 652 / 950;
+  display: block;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: #050505;
+}
+
+.ecosystem-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.3s ease;
+}
+
+.ecosystem-item figcaption {
+  margin-top: 16px;
+  padding-top: 12px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  border-top: 1px solid var(--line);
+  font-size: 14px;
+  font-weight: 750;
+}
+
 .gallery {
   border-top: 1px solid var(--line);
 }
@@ -808,6 +846,10 @@ html[dir="rtl"] .join h2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .ecosystem-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .event-card {
     padding-inline: 24px;
     border-inline-end: 1px solid var(--line);
@@ -1055,6 +1097,10 @@ html[dir="rtl"] .join h2 {
 
   .gallery-item:hover img {
     transform: scale(1.025);
+  }
+
+  .ecosystem-art:hover img {
+    transform: scale(1.015);
   }
 
   .join-link:hover {
