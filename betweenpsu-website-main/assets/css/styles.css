@@ -530,42 +530,187 @@ main,
   font-weight: 750;
 }
 
-.ecosystem-grid {
+.ecosystem-band {
   margin-top: 48px;
-  display: grid;
-  gap: 44px 20px;
 }
 
-.ecosystem-item {
-  min-width: 0;
-  margin: 0;
+.ecosystem-band + .ecosystem-band {
+  margin-top: 60px;
 }
 
-.ecosystem-art {
-  aspect-ratio: 652 / 950;
-  display: block;
-  overflow: hidden;
-  border-radius: var(--radius-md);
-  background: #050505;
-}
-
-.ecosystem-art img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  transition: transform 0.3s ease;
-}
-
-.ecosystem-item figcaption {
-  margin-top: 16px;
-  padding-top: 12px;
+.ecosystem-band-heading {
+  padding-bottom: 16px;
   display: flex;
+  align-items: baseline;
   justify-content: space-between;
   gap: 16px;
-  border-top: 1px solid var(--line);
-  font-size: 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+.ecosystem-band-heading h3 {
+  margin: 0;
+  font-size: clamp(1.5rem, 5vw, 2.25rem);
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+
+.ecosystem-band-heading a {
+  max-width: 160px;
+  flex: 0 0 auto;
+  text-align: end;
+  font-size: 13px;
   font-weight: 750;
+}
+
+.marquee-window {
+  margin-top: 20px;
+  padding: 18px 0;
+  border-radius: var(--radius-md);
+  background: #050505;
+  direction: ltr;
+}
+
+.marquee-track,
+.marquee-group {
+  display: flex;
+}
+
+.marquee-track {
+  width: 100%;
+}
+
+.marquee-group {
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.partner-tile,
+.network-tile {
+  display: block;
+  flex: none;
+  background-color: #050505;
+  background-repeat: no-repeat;
+}
+
+.partner-tile {
+  width: 160px;
+  height: 110px;
+  background-image: url("../images/success-partners.png");
+  background-size: 652px 1039px;
+}
+
+.partner-03 {
+  width: 190px;
+}
+
+.partner-08 {
+  width: 180px;
+}
+
+.partner-10,
+.partner-11,
+.partner-12,
+.partner-13 {
+  width: 130px;
+}
+
+.partner-01 { background-position: -65px -220px; }
+.partner-02 { background-position: -220px -220px; }
+.partner-03 { background-position: -380px -220px; }
+.partner-04 { background-position: -65px -353px; }
+.partner-05 { background-position: -220px -353px; }
+.partner-06 { background-position: -395px -353px; }
+.partner-07 { background-position: -65px -465px; }
+.partner-08 { background-position: -230px -465px; }
+.partner-09 { background-position: -425px -465px; }
+.partner-10 { background-position: -80px -580px; }
+.partner-11 { background-position: -205px -580px; }
+.partner-12 { background-position: -325px -580px; }
+.partner-13 { background-position: -445px -580px; }
+.partner-14 { background-position: -65px -703px; }
+.partner-15 { background-position: -230px -703px; }
+.partner-16 { background-position: -420px -703px; }
+
+.network-tile {
+  width: 88px;
+  height: 112px;
+  border-radius: 20px;
+  background-image: url("../images/success-network.png");
+  background-size: 653px 1038px;
+}
+
+.network-tile:nth-child(1) { background-position: -61px -205px; }
+.network-tile:nth-child(2) { background-position: -173px -205px; }
+.network-tile:nth-child(3) { background-position: -286px -205px; }
+.network-tile:nth-child(4) { background-position: -398px -205px; }
+.network-tile:nth-child(5) { background-position: -511px -205px; }
+.network-tile:nth-child(6) { background-position: -61px -354px; }
+.network-tile:nth-child(7) { background-position: -173px -354px; }
+.network-tile:nth-child(8) { background-position: -286px -354px; }
+.network-tile:nth-child(9) { background-position: -398px -354px; }
+.network-tile:nth-child(10) { background-position: -511px -354px; }
+.network-tile:nth-child(11) { background-position: -61px -503px; }
+.network-tile:nth-child(12) { background-position: -173px -503px; }
+.network-tile:nth-child(13) { background-position: -286px -503px; }
+.network-tile:nth-child(14) { background-position: -398px -503px; }
+.network-tile:nth-child(15) { background-position: -511px -503px; }
+.network-tile:nth-child(16) { background-position: -61px -652px; }
+.network-tile:nth-child(17) { background-position: -173px -652px; }
+.network-tile:nth-child(18) { background-position: -286px -652px; }
+.network-tile:nth-child(19) { background-position: -398px -652px; }
+.network-tile:nth-child(20) { background-position: -511px -652px; }
+.network-tile:nth-child(21) { background-position: -61px -801px; }
+.network-tile:nth-child(22) { background-position: -173px -801px; }
+.network-tile:nth-child(23) { background-position: -286px -801px; }
+.network-tile:nth-child(24) { background-position: -398px -801px; }
+.network-tile:nth-child(25) { background-position: -511px -801px; }
+
+.marquee-window.is-animated {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 4%, #000 96%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 4%, #000 96%, transparent);
+}
+
+.marquee-window.is-animated .marquee-track {
+  width: max-content;
+  animation: marquee-scroll 75s linear infinite;
+}
+
+.marquee-window.is-animated .marquee-track-network {
+  animation-duration: 65s;
+}
+
+.marquee-window.is-animated .marquee-group {
+  flex: none;
+  flex-wrap: nowrap;
+  padding-inline-end: 14px;
+}
+
+@keyframes marquee-scroll {
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-window.is-animated {
+    overflow: visible;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .marquee-window.is-animated .marquee-track {
+    width: 100%;
+    animation: none;
+  }
+
+  .marquee-window.is-animated .marquee-group {
+    flex-wrap: wrap;
+    padding-inline-end: 0;
+  }
+
+  .marquee-window.is-animated .marquee-group + .marquee-group {
+    display: none;
+  }
 }
 
 .gallery {
@@ -846,10 +991,6 @@ html[dir="rtl"] .join h2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .ecosystem-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .event-card {
     padding-inline: 24px;
     border-inline-end: 1px solid var(--line);
@@ -1099,8 +1240,8 @@ html[dir="rtl"] .join h2 {
     transform: scale(1.025);
   }
 
-  .ecosystem-art:hover img {
-    transform: scale(1.015);
+  .marquee-window.is-animated:hover .marquee-track {
+    animation-play-state: paused;
   }
 
   .join-link:hover {
