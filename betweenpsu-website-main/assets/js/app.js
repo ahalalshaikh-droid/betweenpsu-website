@@ -42,9 +42,8 @@ const copy = Object.freeze({
       title: 'Our ecosystem.',
       partnersCaption: 'Success partners',
       networkCaption: 'The success network',
-      viewFull: 'View full image ↗',
-      partnersLink: 'View success partners image at full size',
-      networkLink: 'View success network image at full size',
+      partnersImage: 'Success partner logos',
+      networkImage: 'Portraits in the success network',
     },
     gallery: {
       eyebrow: 'Gallery',
@@ -106,9 +105,8 @@ const copy = Object.freeze({
       title: 'منظومتنا.',
       partnersCaption: 'شركاء النجاح',
       networkCaption: 'شبكة النجاح',
-      viewFull: 'عرض الصورة كاملة ↗',
-      partnersLink: 'عرض صورة شركاء النجاح بالحجم الكامل',
-      networkLink: 'عرض صورة شبكة النجاح بالحجم الكامل',
+      partnersImage: 'شعارات شركاء النجاح',
+      networkImage: 'صور أشخاص من شبكة النجاح',
     },
     gallery: {
       eyebrow: 'لحظاتنا',

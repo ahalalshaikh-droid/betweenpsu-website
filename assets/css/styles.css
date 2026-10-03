@@ -540,10 +540,6 @@ main,
 
 .ecosystem-band-heading {
   padding-bottom: 16px;
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 16px;
   border-bottom: 1px solid var(--line);
 }
 
@@ -552,14 +548,6 @@ main,
   font-size: clamp(1.5rem, 5vw, 2.25rem);
   letter-spacing: -0.04em;
   line-height: 1.1;
-}
-
-.ecosystem-band-heading a {
-  max-width: 160px;
-  flex: 0 0 auto;
-  text-align: end;
-  font-size: 13px;
-  font-weight: 750;
 }
 
 .marquee-window {
