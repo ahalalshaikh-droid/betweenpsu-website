@@ -37,14 +37,6 @@ const copy = Object.freeze({
       upcoming: 'Upcoming',
       ongoing: 'Ongoing',
     },
-    ecosystem: {
-      eyebrow: 'Connections',
-      title: 'Our ecosystem.',
-      partnersCaption: 'Success partners',
-      networkCaption: 'The success network',
-      partnersImage: 'Success partner logos',
-      networkImage: 'Portraits in the success network',
-    },
     gallery: {
       eyebrow: 'Gallery',
       title: 'In Between.',
@@ -99,14 +91,6 @@ const copy = Object.freeze({
       title: 'ما القادم هذا الفصل؟',
       upcoming: 'قريبًا',
       ongoing: 'مستمر',
-    },
-    ecosystem: {
-      eyebrow: 'روابطنا',
-      title: 'منظومتنا.',
-      partnersCaption: 'شركاء النجاح',
-      networkCaption: 'شبكة النجاح',
-      partnersImage: 'شعارات شركاء النجاح',
-      networkImage: 'صور أشخاص من شبكة النجاح',
     },
     gallery: {
       eyebrow: 'لحظاتنا',
@@ -284,20 +268,6 @@ function setupRevealObserver() {
   nodes.forEach((node) => observer.observe(node));
 }
 
-function setupMarquees() {
-  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-  document.querySelectorAll('[data-marquee-track]').forEach((track) => {
-    const source = track.querySelector('[data-marquee-source]');
-    if (!source) return;
-    const duplicate = source.cloneNode(true);
-    duplicate.removeAttribute('data-marquee-source');
-    duplicate.setAttribute('aria-hidden', 'true');
-    track.append(duplicate);
-    track.closest('.marquee-window').classList.add('is-animated');
-  });
-}
-
 function protectPhoto(event) {
   if (event.target instanceof Element && event.target.closest('[data-protected-photo]')) {
     event.preventDefault();
@@ -324,7 +294,6 @@ function boot() {
   setTranslatedContent(language);
   setMenuOpen(false);
   setupRevealObserver();
-  setupMarquees();
 
   document.querySelector('[data-language-toggle]').addEventListener('click', () => {
     language = oppositeLanguage(language);
