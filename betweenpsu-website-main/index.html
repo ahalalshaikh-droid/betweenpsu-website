@@ -24,7 +24,7 @@
   <link rel="canonical" href="https://betweenpsu.com/">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="site.webmanifest">
-  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/styles.css?v=20261005-focus-event">
   <title>Between | Prince Sultan University</title>
 </head>
 <body>
@@ -93,11 +93,14 @@
           <p class="about-copy" data-i18n="about.body">Between is a student club at Prince Sultan University focused on startups and entrepreneurship. Through programs, events, competitions, and workshops, we connect students directly with founders, investors, and the people building companies across Saudi Arabia.</p>
           <p class="about-copy about-copy-secondary" data-i18n="about.body2">Our belief is simple: ambition is common, but access isn’t. Between exists to close that gap by turning curiosity into firsthand experiences, meaningful connections, and real opportunities to take part in the startup ecosystem.</p>
         </div>
-        <div class="focus-list" aria-label="Between focus areas" data-i18n-aria-label="about.focusLabel">
-          <div class="focus-item"><span>01</span><strong data-focus-index="0">Startups</strong></div>
-          <div class="focus-item"><span>02</span><strong data-focus-index="1">Entrepreneurship</strong></div>
-          <div class="focus-item"><span>03</span><strong data-focus-index="2">Investing</strong></div>
-          <div class="focus-item"><span>04</span><strong data-focus-index="3">Business</strong></div>
+        <div class="focus-group">
+          <p class="focus-label" id="focus-label" data-i18n="about.focusLabel">Between focus areas</p>
+          <ul class="focus-list" aria-labelledby="focus-label">
+            <li class="focus-item" data-focus-index="0">Startups</li>
+            <li class="focus-item" data-focus-index="1">Entrepreneurship</li>
+            <li class="focus-item" data-focus-index="2">Investing</li>
+            <li class="focus-item" data-focus-index="3">Business</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -111,7 +114,7 @@
         <article class="event-card event-card-featured reveal" data-event-index="0">
           <div class="event-meta-top">
             <span class="event-status" data-event-status>Upcoming</span>
-            <span class="event-when" data-event-when hidden></span>
+            <span class="event-when" data-event-when>Sunday–Monday · 11–12 October 2026</span>
           </div>
           <h3 data-event-title>Between Ventures</h3>
           <div class="event-card-body">
@@ -225,6 +228,6 @@
     <span data-i18n="footer.location">Riyadh, Saudi Arabia</span>
   </footer>
 
-  <script type="module" src="assets/js/app.js"></script>
+  <script type="module" src="assets/js/app.js?v=20261005-focus-event"></script>
 </body>
 </html>

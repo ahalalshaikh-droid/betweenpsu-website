@@ -430,27 +430,45 @@ main,
   color: var(--ink);
 }
 
+.focus-label {
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .focus-list {
-  border-top: 1px solid var(--line);
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px 28px;
+  list-style: none;
 }
 
 .focus-item {
-  min-height: 72px;
-  display: grid;
-  grid-template-columns: 48px minmax(0, 1fr);
-  align-items: center;
-  gap: 14px;
-  border-bottom: 1px solid var(--line);
-}
-
-.focus-item span {
-  color: var(--muted);
-  font-size: 12px;
-  font-variant-numeric: tabular-nums;
-}
-
-.focus-item strong {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
   font-size: 21px;
+  font-weight: 750;
+}
+
+.focus-item::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  flex: none;
+  align-self: center;
+  border-radius: 50%;
+  background: var(--yellow);
+}
+
+@media (min-width: 640px) {
+  .focus-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .event-grid {
@@ -493,6 +511,11 @@ main,
 .event-when {
   max-width: 190px;
   text-align: end;
+}
+
+.event-card-featured .event-when {
+  color: var(--ink);
+  font-size: 13px;
 }
 
 .event-card h3 {

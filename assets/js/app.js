@@ -119,7 +119,7 @@ const copy = Object.freeze({
 const events = Object.freeze([
   {
     status: 'upcoming',
-    when: null,
+    when: { en: 'Sunday–Monday · 11–12 October 2026', ar: 'الأحد–الاثنين · ١١–١٢ أكتوبر ٢٠٢٦' },
     title: { en: 'Between Ventures', ar: 'Between Ventures' },
     description: {
       en: 'An immersive, station-based experience where students explore the startup ecosystem from both founder and investor perspectives through interactive activities, startup-building challenges, and investing simulations.',
