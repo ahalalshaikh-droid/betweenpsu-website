@@ -158,6 +158,14 @@ test('footer brand has matching English and Arabic copy', async () => {
   assert.equal(app.getCopy('ar').footer.brand, 'بين · جامعة الأمير سلطان');
 });
 
+test('Between Ventures changes to Done after 13 October in Riyadh', async () => {
+  const app = await import('../assets/js/app.js');
+  assert.equal(app.isBetweenVenturesDone(Date.parse('2026-10-13T20:59:59Z')), false);
+  assert.equal(app.isBetweenVenturesDone(Date.parse('2026-10-13T21:00:00Z')), true);
+  assert.equal(app.getCopy('en').events.done, 'Done');
+  assert.equal(app.getCopy('ar').events.done, 'انتهت');
+});
+
 test('client code avoids executable string and HTML injection APIs', () => {
   const js = readFileSync(new URL('../assets/js/app.js', import.meta.url), 'utf8');
   assert.doesNotMatch(js, /\binnerHTML\b|insertAdjacentHTML|\beval\s*\(|new Function/);
