@@ -1,0 +1,26 @@
+# Keep local credentials and backups out of the public repository.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p8
+*.p12
+*.pfx
+*.jks
+*.keystore
+id_rsa*
+id_ed25519*
+credentials.json
+service-account*.json
+.npmrc
+.pypirc
+.aws/
+.ssh/
+.local-before-github-*.zip
+docs/security-stress-review-*.md
+tools/local-load-test.mjs
+tools/live-smoke-test.mjs
+
+# The old site copy is preserved in Git history, not published again.
+betweenpsu-website-main/
