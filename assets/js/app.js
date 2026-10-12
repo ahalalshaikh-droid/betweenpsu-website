@@ -2,17 +2,6 @@ export const DEFAULT_LANGUAGE = 'en';
 export const SUPPORTED_LANGUAGES = Object.freeze(['en', 'ar']);
 
 const STORAGE_KEY = 'between-language';
-const BETWEEN_VENTURES_DONE_AT = Date.parse('2026-10-13T21:00:00Z'); // 14 October, 00:00 in Riyadh
-
-export function isBetweenVenturesDone(now = Date.now()) {
-  return now >= BETWEEN_VENTURES_DONE_AT;
-}
-
-function previewBetweenVenturesDone() {
-  return ['localhost', '127.0.0.1'].includes(window.location.hostname)
-    && new URLSearchParams(window.location.search).get('ventures-preview') === 'done';
-}
-
 const copy = Object.freeze({
   en: {
     nav: {
@@ -43,7 +32,7 @@ const copy = Object.freeze({
     },
     events: {
       eyebrow: 'Events',
-      title: 'What’s coming this semester?',
+      title: 'This semester at Between.',
       upcoming: 'Upcoming',
       ongoing: 'Ongoing',
       done: 'Done',
@@ -99,7 +88,7 @@ const copy = Object.freeze({
     },
     events: {
       eyebrow: 'الفعاليات',
-      title: 'ما القادم هذا الفصل؟',
+      title: 'فعاليات هذا الفصل.',
       upcoming: 'قريبًا',
       ongoing: 'مستمر',
       done: 'انتهت',
@@ -130,9 +119,8 @@ const copy = Object.freeze({
 
 const events = Object.freeze([
   {
-    status: 'upcoming',
-    when: { en: 'Sunday–Monday · 11–12 October 2026', ar: 'الأحد–الاثنين · ١١–١٢ أكتوبر ٢٠٢٦' },
-    doneWhen: { en: 'Held 11–12 October 2026', ar: 'أُقيمت يومي ١١–١٢ أكتوبر ٢٠٢٦' },
+    status: 'done',
+    when: { en: 'Held 11–12 October 2026', ar: 'أُقيمت يومي ١١–١٢ أكتوبر ٢٠٢٦' },
     title: { en: 'Between Ventures', ar: 'Between Ventures' },
     description: {
       en: 'An immersive, station-based experience where students explore the startup ecosystem from both founder and investor perspectives through interactive activities, startup-building challenges, and investing simulations.',
@@ -232,9 +220,9 @@ function setTranslatedContent(language) {
   document.querySelectorAll('[data-event-index]').forEach((article) => {
     const event = events[Number(article.dataset.eventIndex)];
     if (!event) return;
-    const done = Boolean(event.doneWhen) && (isBetweenVenturesDone() || previewBetweenVenturesDone());
+    const done = event.status === 'done';
     const status = done ? text.events.done : event.status === 'ongoing' ? text.events.ongoing : text.events.upcoming;
-    const when = (done ? event.doneWhen : event.when)?.[language] ?? '';
+    const when = event.when?.[language] ?? '';
     article.classList.toggle('is-complete', done);
     article.querySelector('[data-event-status]').textContent = status;
     article.querySelector('[data-event-title]').textContent = event.title[language];
@@ -309,14 +297,6 @@ function boot() {
   setTranslatedContent(language);
   setMenuOpen(false);
   setupRevealObserver();
-
-  const timeUntilDone = BETWEEN_VENTURES_DONE_AT - Date.now();
-  if (timeUntilDone > 0) {
-    setTimeout(() => setTranslatedContent(language), timeUntilDone + 1000);
-  }
-  document.addEventListener('visibilitychange', () => {
-    if (!document.hidden) setTranslatedContent(language);
-  });
 
   document.querySelector('[data-language-toggle]').addEventListener('click', () => {
     language = oppositeLanguage(language);
